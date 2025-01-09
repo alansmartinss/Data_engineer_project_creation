@@ -6,7 +6,9 @@ This project aims to showcase the end-to-end data workflow, including data colle
 - Python 3.8+
 - Jupyter Notebook
 
-### **Analysis Notebook Overview**
+---
+
+### Section 1: Analysis Notebook Overview
 
 The analysis notebook is designed to perform a complete exploratory and preprocessing workflow for the dataset used in this project. It leverages modularized functions from the `basic_analysys.py` file, located in the `created_functions` folder, ensuring reusable and maintainable code.
 
@@ -25,8 +27,6 @@ The notebook follows these key steps:
 ### Section 2: Pre-Modeling and Feature Engineering
 
 This notebook focuses on **testing sampling strategies** and performing **feature engineering** to prepare the dataset for supervised machine learning models. Below are the key steps performed in this notebook:
-
----
 
 #### **1. Sampling Techniques**
 - The notebook evaluates different sampling methods to split the dataset into **training** and **testing** subsets:
@@ -48,11 +48,9 @@ New features were created to enrich the dataset, enhancing its predictive power:
 #### **4. Evaluation**
 - The created features and dataset splits were thoroughly analyzed to ensure quality and relevance for the machine learning pipeline.
 
----
-
 This notebook establishes the foundation for robust model training by ensuring that the dataset is well-prepared and engineered with domain-specific insights.
 
-
+---
 
 
 **Note:**  
