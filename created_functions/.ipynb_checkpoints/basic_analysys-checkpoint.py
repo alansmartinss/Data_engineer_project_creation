@@ -170,8 +170,6 @@ def plot_correlation_matrix(dataframe):
     Returns:
         None
     """
-    #import matplotlib.pyplot as plt
-    #import seaborn as sns
 
     # Select numerical columns (float64)
     numerical_cols = dataframe.select_dtypes(include=['float64']).columns
@@ -197,8 +195,6 @@ def analyze_target_variable(dataframe, target_col):
     Returns:
         None
     """
-    #import matplotlib.pyplot as plt
-    #import seaborn as sns
 
     # Display the distribution of the target variable
     print("\nTarget Variable Distribution:")
