@@ -93,39 +93,3 @@ def compare_histograms(dataset1, dataset2, column, bins=30, labels=('Dataset 1',
     plt.legend()
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.show()
-
-
-def preprocess_dataset(dataframe):
-    """
-    Function to preprocess a dataset by normalizing numerical columns and encoding categorical columns.
-
-    Parameters:
-        dataframe (pd.DataFrame): The input dataset as a pandas DataFrame.
-
-    Returns:
-        pd.DataFrame: A transformed DataFrame with normalized numerical and encoded categorical features.
-    """
-    # Separate features into numerical and categorical
-    numerical_cols = dataframe.select_dtypes(include=['float64', 'int64']).columns
-    categorical_cols = dataframe.select_dtypes(include=['object']).columns
-
-    # Define transformations for numerical and categorical columns
-    transformers = [
-        ('num', MinMaxScaler(), numerical_cols),           # Normalize numerical columns
-        ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_cols)  # One-hot encode categorical columns
-    ]
-
-    # Create ColumnTransformer
-    column_transformer = ColumnTransformer(transformers)
-
-    # Apply transformations to the dataset
-    transformed_data = column_transformer.fit_transform(dataframe)
-
-    # Create a DataFrame with transformed data
-    transformed_columns = (
-        list(numerical_cols) + 
-        list(column_transformer.named_transformers_['cat'].get_feature_names_out(categorical_cols))
-    )
-    transformed_df = pd.DataFrame(transformed_data, columns=transformed_columns, index=dataframe.index)
-
-    return transformed_df
